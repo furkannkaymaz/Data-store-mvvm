@@ -17,8 +17,8 @@ class DataStoreRepositoryImpl
     override suspend fun readString(key: Preferences.Key<String>): Flow<String> {
         return dataStore.data
             .catch { ex ->
-                    if (ex is IOException) {
-                        emit(emptyPreferences())
+                if (ex is IOException) {
+                    emit(emptyPreferences())
                 } else throw ex
             }
             .map { preferences ->

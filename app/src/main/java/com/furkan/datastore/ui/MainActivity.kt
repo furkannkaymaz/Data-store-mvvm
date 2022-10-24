@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnRead.setOnClickListener {
             lifecycleScope.launchWhenCreated {
                 viewModel.readString(APP_NAME).collectLatest {
-                    Toast.makeText(this@MainActivity,it,Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, it, Toast.LENGTH_SHORT).show()
                 }
             }
         }
