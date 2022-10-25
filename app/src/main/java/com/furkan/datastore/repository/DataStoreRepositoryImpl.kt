@@ -33,4 +33,81 @@ class DataStoreRepositoryImpl
         }
     }
 
+    override suspend fun readBoolean(key: Preferences.Key<Boolean>, name: String): Flow<Boolean> {
+        return dataStore.data
+            .catch { ex ->
+                if (ex is IOException) {
+                    emit(emptyPreferences())
+                } else throw ex
+            }
+            .map { preferences ->
+                val isChecked = preferences[key] ?: false
+                isChecked
+            }
+    }
+
+    override suspend fun saveBoolean(key: Preferences.Key<Boolean>, isChecked: Boolean) {
+        dataStore.edit { preferences ->
+            preferences[key] = isChecked
+        }
+    }
+
+    override suspend fun readInt(key: Preferences.Key<Int>, value: Int): Flow<Int> {
+        return dataStore.data
+            .catch { ex ->
+                if (ex is IOException) {
+                    emit(emptyPreferences())
+                } else throw ex
+            }
+            .map { preferences ->
+                val isChecked = preferences[key] ?: -1
+                isChecked
+            }
+    }
+
+    override suspend fun saveInt(key: Preferences.Key<Int>, value: Int) {
+        dataStore.edit { preferences ->
+            preferences[key] = value
+        }
+    }
+
+    override suspend fun readFloat(key: Preferences.Key<Float>, value: Float): Flow<Float> {
+        return dataStore.data
+            .catch { ex ->
+                if (ex is IOException) {
+                    emit(emptyPreferences())
+                } else throw ex
+            }
+            .map { preferences ->
+                val isChecked = preferences[key] ?: 0f
+                isChecked
+            }
+    }
+
+    override suspend fun saveFloat(key: Preferences.Key<Float>, value: Float) {
+        dataStore.edit { preferences ->
+            preferences[key] = value
+        }
+    }
+
+    override suspend fun readLong(key: Preferences.Key<Long>, value: Long): Flow<Long> {
+        return dataStore.data
+            .catch { ex ->
+                if (ex is IOException) {
+                    emit(emptyPreferences())
+                } else throw ex
+            }
+            .map { preferences ->
+                val isChecked = preferences[key] ?: 0
+                isChecked
+            }
+    }
+
+    override suspend fun saveLong(key: Preferences.Key<Long>, value: Long) {
+        dataStore.edit { preferences ->
+            preferences[key] = value
+        }
+    }
+
+
 }
