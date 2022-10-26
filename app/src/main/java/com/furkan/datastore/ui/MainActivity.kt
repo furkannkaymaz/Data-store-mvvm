@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        binding.tvEmail.isSelected = true
+
         binding.btnSave.setOnClickListener {
             if (binding.etAppName.text.isEmpty()) {
                 return@setOnClickListener

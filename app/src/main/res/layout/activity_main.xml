@@ -7,6 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/madeBy"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:singleLine="true"
+        android:scrollHorizontally="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit ="marquee_forever"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
     <EditText
         android:id="@+id/etAppName"
         android:layout_width="match_parent"

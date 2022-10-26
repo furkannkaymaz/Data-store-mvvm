@@ -2,4 +2,7 @@
     <string name="app_name">DataStore</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="madeBy"><b>Mail</b> -> furkankaymaz@gmail.com || <b>Github</b>-> https://github.com/furkannkaymaz || <b>Linkedin</b> -> https://www.linkedin.com/in/furkan-kaymaz-417956197/</string>
+
+
 </resources>
